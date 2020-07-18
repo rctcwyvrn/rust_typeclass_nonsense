@@ -1,0 +1,80 @@
+   Compiling rust_typeclass_nonsense v0.1.0 (/mnt/h/code/rust_typeclass_nonsense)
+warning: type parameter `b1` should have an upper camel case name
+  --> src/main.rs:59:15
+   |
+59 |     trait Not<b1,b> {}
+   |               ^^ help: convert the identifier to upper camel case: `B1`
+   |
+   = note: `#[warn(non_camel_case_types)]` on by default
+
+warning: type parameter `b` should have an upper camel case name
+  --> src/main.rs:59:18
+   |
+59 |     trait Not<b1,b> {}
+   |                  ^ help: convert the identifier to upper camel case: `B`
+
+warning: trait objects without an explicit `dyn` are deprecated
+  --> src/main.rs:60:10
+   |
+60 |     impl Not<False, True> {}
+   |          ^^^^^^^^^^^^^^^^ help: use `dyn`: `dyn Not<False, True>`
+   |
+   = note: `#[warn(bare_trait_objects)]` on by default
+
+warning: trait objects without an explicit `dyn` are deprecated
+  --> src/main.rs:61:10
+   |
+61 |     impl Not<True, False> {}
+   |          ^^^^^^^^^^^^^^^^ help: use `dyn`: `dyn Not<True, False>`
+
+warning: private trait `chaos::Testable` in public interface (error E0445)
+  --> src/main.rs:31:5
+   |
+31 | /     impl<T: Testable + Or<True,False>> Test for Target<T> {
+32 | |         fn print(){
+33 | |             T::test() 
+34 | |         }
+35 | |     }
+   | |_____^
+   |
+   = note: `#[warn(private_in_public)]` on by default
+   = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+   = note: for more information, see issue #34537 <https://github.com/rust-lang/rust/issues/34537>
+
+warning: private trait `chaos::Or<chaos::True, chaos::False>` in public interface (error E0445)
+  --> src/main.rs:31:5
+   |
+31 | /     impl<T: Testable + Or<True,False>> Test for Target<T> {
+32 | |         fn print(){
+33 | |             T::test() 
+34 | |         }
+35 | |     }
+   | |_____^
+   |
+   = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+   = note: for more information, see issue #34537 <https://github.com/rust-lang/rust/issues/34537>
+
+warning: private type `chaos::False` in public interface (error E0446)
+  --> src/main.rs:31:5
+   |
+31 | /     impl<T: Testable + Or<True,False>> Test for Target<T> {
+32 | |         fn print(){
+33 | |             T::test() 
+34 | |         }
+35 | |     }
+   | |_____^
+   |
+   = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+   = note: for more information, see issue #34537 <https://github.com/rust-lang/rust/issues/34537>
+
+warning: enum is never used: `False`
+  --> src/main.rs:52:10
+   |
+52 |     enum False {}
+   |          ^^^^^
+   |
+   = note: `#[warn(dead_code)]` on by default
+
+warning: 8 warnings emitted
+
+    Finished dev [unoptimized + debuginfo] target(s) in 0.98s
